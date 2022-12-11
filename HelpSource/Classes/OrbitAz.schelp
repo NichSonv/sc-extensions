@@ -1,0 +1,41 @@
+TITLE:: OrbitAz
+summary:: Azimuth orbital panner
+categories:: UGens>Multichannel>Panners
+related:: Classes/PanAz, Classes/SplayAz
+
+DESCRIPTION::
+OrbitAz is an azimuth panner that, unlike its couterparts, PanAz and SplayAz, is completely autonomous regarding the signal position.
+It will take a mono signal and pan it around a determined number of channels, a determined number of times (cycles), both specified by the user, then change direction and repeat.
+
+CLASSMETHODS::
+
+METHOD:: ar
+
+METHOD:: kr
+
+ARGUMENT:: numChans
+The number of output channels.
+
+ARGUMENT:: in
+The input signal (must be mono).
+
+ARGUMENT:: cycles
+The number of "orbits" (times OrbitAz will rotate the signal in one direction). Can't be inf, yet.
+
+ARGUMENT:: time
+The time for one "orbit".
+
+ARGUMENT:: dir
+The initial direction OrbitAz will pan the signal. Can't be modulated. Must be 'right' or 'left', otherwise it will return an error.
+
+ARGUMENT:: start
+The starting channel. It's the same as with SplayAz and PanAz, where 2.0/numChans equal to channel 1, 4.0/numChan equal to channel 2 etc.
+
+ARGUMENT:: width
+The width of the panning envelope. Nominally this is 2.0 which pans between pairs of adjacent speakers. Values greater than 2 will spread the pan over greater numbers of speakers. Values less than 1 will leave silent gaps between speakers.
+
+ARGUMENT:: orientation
+Should be 0 if the front is a vertex of the spanning polygon. The first speaker will be directly in front. Should be 0.5 if the front bisects a side of the spanning polygon. Then the first speaker will be the one left of center.
+
+ARGUMENT:: level
+A control rate level input.
